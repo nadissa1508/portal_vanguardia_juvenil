@@ -4,7 +4,7 @@ create table Usuarios (
     rol varchar(50) not null
 );
 
--- Creación Tabla Materiales
+-- Creación Tabla Materias
 create table Materiales (
     id int primary key not null,
     nombre varchar(50) not null
