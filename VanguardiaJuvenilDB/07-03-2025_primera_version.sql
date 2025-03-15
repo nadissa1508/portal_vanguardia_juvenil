@@ -103,3 +103,43 @@ Create table Cursos_tareas (
 	id_curso int not null references Cursos(id),
 	id_tareas int not null references Tareas(id)
 )
+
+-- Creación de la tabla Tareas
+CREATE TABLE Tareas (
+    id SERIAL PRIMARY KEY NOT NULL,
+    titulo VARCHAR(255) NOT NULL,
+    valor FLOAT NOT NULL, -- Puedes cambiar a INT si los valores son enteros
+    fecha_entrega DATE NOT NULL
+);
+
+-- Creación de la tabla Asistencia
+CREATE TABLE Asistencia (
+    id SERIAL PRIMARY KEY NOT NULL,
+    id_curso INT NOT NULL,
+    id_estudiante INT NOT NULL,
+    fecha TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_curso) REFERENCES Cursos(id),
+    FOREIGN KEY (id_estudiante) REFERENCES Estudiantes(carnet)
+);
+
+-- Creación de la tabla Calificaciones
+CREATE TABLE Calificaciones (
+    id SERIAL PRIMARY KEY NOT NULL,
+    id_estudiante INT NOT NULL,
+    id_curso INT NOT NULL,
+    nota FLOAT NOT NULL, -- Se puede cambiar el tipo de dato si se manejan valores enteros
+    fecha DATE NOT NULL DEFAULT CURRENT_DATE,
+    FOREIGN KEY (id_estudiante) REFERENCES Estudiantes(carnet),
+    FOREIGN KEY (id_curso) REFERENCES Cursos(id)
+);
+
+-- Creación de la tabla Observaciones
+CREATE TABLE Observaciones (
+    id SERIAL PRIMARY KEY NOT NULL,
+    id_estudiantes INT NOT NULL,
+    id_curso INT NOT NULL,
+    observaciones TEXT,
+    puntos_de_accion TEXT,
+    FOREIGN KEY (id_estudiantes) REFERENCES Estudiantes(carnet),
+    FOREIGN KEY (id_curso) REFERENCES Cursos(id)
+);
