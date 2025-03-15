@@ -108,7 +108,7 @@ Create table Cursos_tareas (
 CREATE TABLE Tareas (
     id SERIAL PRIMARY KEY NOT NULL,
     titulo VARCHAR(255) NOT NULL,
-    valor FLOAT NOT NULL, -- Puedes cambiar a INT si los valores son enteros
+    valor FLOAT NOT NULL, 
     fecha_entrega DATE NOT NULL
 );
 
@@ -127,7 +127,7 @@ CREATE TABLE Calificaciones (
     id SERIAL PRIMARY KEY NOT NULL,
     id_estudiante INT NOT NULL,
     id_curso INT NOT NULL,
-    nota FLOAT NOT NULL, -- Se puede cambiar el tipo de dato si se manejan valores enteros
+    nota FLOAT NOT NULL, 
     fecha DATE NOT NULL DEFAULT CURRENT_DATE,
     FOREIGN KEY (id_estudiante) REFERENCES Estudiantes(carnet),
     FOREIGN KEY (id_curso) REFERENCES Cursos(id)
