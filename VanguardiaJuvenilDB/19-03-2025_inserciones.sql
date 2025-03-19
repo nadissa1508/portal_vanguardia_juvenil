@@ -129,3 +129,93 @@ INSERT INTO Grado_seccion (id_grado, id_seccion) VALUES
 (8, 8),
 (9, 9),
 (10, 10);
+
+INSERT INTO Tareas (titulo, valor, fecha_entrega, trimestre_id) VALUES
+('Tarea de Álgebra', 10.0, '2023-01-20', 1), 
+('Informe de Laboratorio', 15.0, '2023-01-22', 1),
+('Ensayo sobre la Revolución', 20.0, '2023-01-25', 1), 
+('Análisis de Poema', 10.0, '2023-01-27', 1), 
+('Presentación en Inglés', 15.0, '2023-01-30', 1), 
+('Proyecto de Arte', 25.0, '2023-02-01', 1), 
+('Rutina de Ejercicios', 10.0, '2023-02-03', 1), 
+('Mapa de América', 15.0, '2023-02-05', 1), 
+('Informe de Biología', 20.0, '2023-02-07', 1), 
+('Experimento de Química', 25.0, '2023-02-10', 1); 
+
+INSERT INTO Cursos_tareas (id_curso, id_tareas) VALUES
+(1, 1), 
+(2, 2), 
+(3, 3), 
+(4, 4), 
+(5, 5), 
+(6, 6),
+(7, 7), 
+(8, 8),
+(9, 9), 
+(10, 10); 
+
+INSERT INTO Trimestres (fecha_inicio, fecha_fin) VALUES
+('2023-01-01', '2023-03-31'), 
+('2023-04-01', '2023-06-30'), 
+('2023-07-01', '2023-09-30'),
+('2023-10-01', '2023-12-31'); 
+
+INSERT INTO Cursos (id_materia, id_maestro, id_grado_seccion) VALUES
+(1, 1, 1), 
+(2, 2, 2), 
+(3, 3, 3), 
+(4, 4, 4), 
+(5, 5, 5), 
+(6, 6, 6),
+(7, 7, 7), 
+(8, 8, 8), 
+(9, 9, 9), 
+(10, 10, 10); 
+
+INSERT INTO Calificaciones (carnet_estudiante, id_curso, nota, id_boleta, id_tarea) VALUES--
+(1001, 1, 85.5, 1, 1), 
+(1002, 2, 90.0, 2, 2), 
+(1003, 3, 78.0, 3, 3), 
+(1004, 4, 92.5, 4, 4), 
+(1005, 5, 88.0, 5, 5), 
+(1006, 6, 95.0, 6, 6), 
+(1007, 7, 81.5, 7, 7), 
+(1008, 8, 89.0, 8, 8), 
+(1009, 9, 76.5, 9, 9), 
+(1010, 10, 94.0, 10, 10); 
+
+INSERT INTO Asistencia (id_curso, carnet_estudiante, fecha) VALUES
+(1, 1001, '2023-01-10 08:00:00'), 
+(2, 1002, '2023-01-11 08:00:00'), 
+(3, 1003, '2023-01-12 08:00:00'), 
+(4, 1004, '2023-01-13 08:00:00'), 
+(5, 1005, '2023-01-14 08:00:00'), 
+(6, 1006, '2023-01-15 08:00:00'), 
+(7, 1007, '2023-01-16 08:00:00'), 
+(8, 1008, '2023-01-17 08:00:00'), 
+(9, 1009, '2023-01-18 08:00:00'), 
+(10, 1010, '2023-01-19 08:00:00'); 
+
+INSERT INTO Observaciones (carnet_estudiante, id_curso, observaciones, puntos_de_accion, id_calificacion) VALUES
+(1001, 1, 'Necesita mejorar en álgebra.', 'Reforzar temas de álgebra.', 1), 
+(1002, 2, 'Excelente desempeño en laboratorios.', 'Seguir así.', 2), 
+(1003, 3, 'Falta participación en clase.', 'Incentivar participación.', 3), 
+(1004, 4, 'Muy buena comprensión lectora.', 'Leer más libros.', 4), 
+(1005, 5, 'Dificultad en pronunciación.', 'Practicar pronunciación.', 5), 
+(1006, 6, 'Creatividad destacada.', 'Explorar más técnicas artísticas.', 6), 
+(1007, 7, 'Falta puntualidad en entregas.', 'Organizar mejor el tiempo.', 7), 
+(1008, 8, 'Buen manejo de mapas.', 'Profundizar en geografía física.', 8), 
+(1009, 9, 'Dificultad en temas de genética.', 'Reforzar genética.', 9),
+(1010, 10, 'Excelente en experimentos.', 'Participar en ferias científicas.', 10); 
+
+INSERT INTO Boleta_calificaciones (carnet_estudiante, fecha, ciclo_escolar, trimestre_id) VALUES
+(1001, '2023-03-31', '2023', 1),
+(1002, '2023-03-31', '2023', 1),
+(1003, '2023-03-31', '2023', 1),
+(1004, '2023-03-31', '2023', 1),
+(1005, '2023-03-31', '2023', 1),
+(1006, '2023-03-31', '2023', 1),
+(1007, '2023-03-31', '2023', 1),
+(1008, '2023-03-31', '2023', 1),
+(1009, '2023-03-31', '2023', 1),
+(1010, '2023-03-31', '2023', 1); 
