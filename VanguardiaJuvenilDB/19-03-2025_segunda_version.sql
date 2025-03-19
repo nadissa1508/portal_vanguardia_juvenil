@@ -102,3 +102,8 @@ ALTER TABLE Tareas
 -- Modificar tabla Observaciones
 ALTER TABLE Observaciones
     ADD COLUMN id_calificacion int NOT NULL REFERENCES Calificaciones(id);
+
+-- Modificar tabla Metodo pago
+ALTER TABLE Metodo_pago
+ADD CONSTRAINT metodo_pago_check
+CHECK (metodo_pago IN ('Servipagos', 'Efectivo', 'Transferencias', 'Deposito'));
