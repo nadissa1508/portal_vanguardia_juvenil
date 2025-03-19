@@ -82,7 +82,7 @@ ALTER TABLE Cursos
 
 -- esto no es necesario, ver si lo agregamos
 -- Modificar tabla Cursos
-ALTER TABLE Tareas
+ALTER TABLE Cursos
     ADD COLUMN id_trimestres int NOT NULL REFERENCES Trimestres(id);
 
 -- Modificar tabla Grados
