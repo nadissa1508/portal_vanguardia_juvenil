@@ -1,7 +1,7 @@
 -- Creación Tabla Usuarios
 create table Usuarios (
     id serial primary key not null,
-    rol varchar(50) not null
+    rol varchar(50) not null CHECK(rol = 'SUP' or rol = 'Padre' or rol = 'Maestro' or rol = 'Administrativo')
 );
 
 -- Creación Tabla Materias
@@ -22,8 +22,8 @@ create table Maestros (
   rol int not null,
   nombre varchar(50) not null,
   apellido varchar(50) not null,
-  email varchar(50) not null,
-  telefono varchar(14) not null,
+  email varchar(50) unique not null,
+  telefono varchar(14) unique not null,
   password varchar(50) not null,
   foreign key (rol) references Usuarios (id)
 );
@@ -45,6 +45,7 @@ Create table Padres (
   rol int not null,
   apellido_estudiante varchar(50) not null,
   email varchar(50) unique not null,
+  telefono varchar(14) unique not null,
   pasword varchar(50) not null,
   foreign key (carnet_estudiante) references estudiantes (carnet),
   foreign key (rol) references usuarios (id)
@@ -67,7 +68,7 @@ Create table Administrativos (
   nombre varchar(50) not null,
   apellido varchar(50) not null,
   email varchar(50) unique not null,
-  telefono varchar(14) not null,
+  telefono varchar(14) unique not null,
   pasword varchar(50) not null,
   foreign key (rol) references usuarios (id)
 );
@@ -133,7 +134,7 @@ CREATE TABLE Calificaciones (
     id SERIAL PRIMARY KEY NOT NULL,
     carnet_estudiante INT NOT NULL,
     id_curso INT NOT NULL,
-    nota FLOAT NOT NULL, 
+    nota FLOAT NOT NULL CHECK(nota >= 0 and nota <= 100), 
     fecha DATE NOT NULL DEFAULT CURRENT_DATE,
     FOREIGN KEY (carnet_estudiante) REFERENCES Estudiantes(carnet),
     FOREIGN KEY (id_curso) REFERENCES Cursos(id)
