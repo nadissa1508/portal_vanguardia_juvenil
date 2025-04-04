@@ -24,7 +24,7 @@ create table Maestros (
   apellido varchar(50) not null,
   email varchar(50) unique not null,
   telefono varchar(14) unique not null,
-  password varchar(50) not null,
+  password varchar(255) not null, 
   foreign key (rol) references Usuarios (id)
 );
 
@@ -41,12 +41,12 @@ create table Estudiantes (
 -- Creación tabla Padres
 Create table Padres (
   id serial primary key not null,
-  carnet_estudiante int not null, --ver si lo hacemos unique por ser clave de acceso al portal
+  carnet_estudiante int not null,
   rol int not null,
   apellido_estudiante varchar(50) not null,
   email varchar(50) unique not null,
   telefono varchar(14) unique not null,
-  pasword varchar(50) not null,
+  pasword varchar(255) not null,  
   foreign key (carnet_estudiante) references estudiantes (carnet),
   foreign key (rol) references usuarios (id)
 );
@@ -69,7 +69,7 @@ Create table Administrativos (
   apellido varchar(50) not null,
   email varchar(50) unique not null,
   telefono varchar(14) unique not null,
-  pasword varchar(50) not null,
+  password varchar(255) not null, 
   foreign key (rol) references usuarios (id)
 );
 
